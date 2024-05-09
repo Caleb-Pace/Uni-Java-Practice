@@ -1,0 +1,16 @@
+# General
+## File types
+*.lnk
+*.zip
+*.rar
+*.code-workspace
+*.exe
+#! Don't include the brief until permission is given
+*.pdf
+
+# Java
+## Output folder
+bin/
+## Eclipse workspace
+.classpath
+.project
