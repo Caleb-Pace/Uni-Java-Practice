@@ -6,5 +6,5 @@ Created by Dr. Kenneth Johnson.
 
 ## Time Card
 **[Display Results method](src/Main.java):** 1h 7m<br/>
-**[Personal Data](src/Person.java):** 15m
-**[Personal Data Tests](src/Main.java):** 37m
+**[Personal Data](src/Person.java):** 15m<br/>
+**[Personal Data Tests](src/Main.java):** 37m<br/>
