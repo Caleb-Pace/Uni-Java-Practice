@@ -3,3 +3,8 @@
 This repository contains my solutions to programming challenges for Medium Size Programming Projects.<br/>
 For the class Object Oriented Programming (ENSE602/COMP503) at [AUT](https://www.aut.ac.nz/).<br/>
 Created by Dr. Kenneth Johnson.
+
+## Time Card
+**[Display Results method](src/Main.java):** 1h 7m<br/>
+**[Personal Data](src/Person.java):** 15m
+**[Personal Data Tests](src/Main.java):** 37m
