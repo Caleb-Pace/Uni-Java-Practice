@@ -5,9 +5,9 @@ For the class Object Oriented Programming (ENSE602/COMP503) at [AUT](https://www
 Created by Dr. Kenneth Johnson.
 
 ## Time Log
-**[Display Results method](src/Main.java):** 1h 7m<br/>
-**[Personal Data](src/Person.java):** 27m<br/>
-**[Personal Data Tests](src/Main.java):** 37m<br/>
-**[Bank Account](src/BankAccount.java):** 20m<br/>
-**[Bank Account Tests](src/Main.java):** 44m<br/>
+**[Display Results method](src/unijavapractice/Main.java):** 1h 7m<br/>
+**[Personal Data](src/unijavapractice/banking/Person.java):** 27m<br/>
+**[Personal Data Tests](src/unijavapractice/Main.java):** 37m<br/>
+**[Bank Account](src/unijavapractice/banking/BankAccount.java):** 20m<br/>
+**[Bank Account Tests](src/unijavapractice/Main.java):** 44m<br/>
 **Other:** 43m<br/>
