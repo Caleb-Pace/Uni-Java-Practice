@@ -1,12 +1,14 @@
 package unijavapractice;
 
 import java.security.InvalidParameterException;
+import unijavapractice.banking.BankAccount;
 import unijavapractice.banking.Person;
 
 
 public class Main {
 	public static void main(String[] args) {
-		PersonalDataTests();
+		//PersonalDataTests();
+		BankAccountTests();
 	}
 
 	// Unit tests for the Personal Data section.
@@ -85,6 +87,95 @@ public class Main {
 			"",
 			"First Name = Danny\nLast Name = DeVito\nAge = 79",
 			"First Name = Danny\nLast Name = DeVito\nAge = 79"
+		}, responses);
+	}
+
+	// Unit tests for the Bank Account section.
+	public static void BankAccountTests() {
+		String[] responses = new String[17];
+		
+		// Get & toString tests
+		Person p = new Person("John", "Smith", 32);
+		BankAccount b = new BankAccount(p);
+		responses[0] = b.toString();
+		responses[1] = String.valueOf(b.getBalance());
+		responses[2] = b.getCustomer().toString();
+
+		// Method tests
+		//     deposit
+		b.deposit(-12);
+		responses[3] = b.toString();
+		b.deposit(0);
+		responses[4] = b.toString();
+		b.deposit(203);
+		responses[5] = b.toString();
+		//     withdraw
+		b.withdraw(-7);
+		responses[6] = b.toString();
+		b.withdraw(0);
+		responses[7] = b.toString();
+		b.withdraw(150);
+		responses[8] = b.toString();
+		b.withdraw(50);
+		responses[9] = b.toString();
+		b.withdraw(1700);
+		responses[10] = b.toString();
+		//     transfer
+		Person p1 =  new Person("Danny", "DeVito", 79);
+		Person p2 =  new Person("Ryan", "Reynolds", 47);
+		BankAccount b1 = new BankAccount(p1); // Danny
+		BankAccount b2 = new BankAccount(p2); // Ryan
+		b1.deposit(9); // Danny
+		b2.deposit(314); // Ryan
+		b1.transfer(b2, -2);
+		responses[11] = String.format("Danny: %d ->  Ryan: %d", b1.getBalance(), b2.getBalance());
+		b1.transfer(b2, 0);
+		responses[12] = String.format("Danny: %d ->  Ryan: %d", b1.getBalance(), b2.getBalance());
+		b1.transfer(b2, 9);
+		responses[13] = String.format("Danny: %d ->  Ryan: %d", b1.getBalance(), b2.getBalance());
+		b2.transfer(b1, 320);
+		responses[14] = String.format(" Ryan: %d -> Danny: %d", b2.getBalance(), b1.getBalance());
+		b2.transfer(b1, 6);
+		responses[15] = String.format(" Ryan: %d -> Danny: %d", b2.getBalance(), b1.getBalance());
+		b1.transfer(b1, 200);
+		responses[16] = String.format("Danny: %d -> Danny", b1.getBalance());
+		
+		displayResults(new String[] {
+			"Initialisation",
+			"getBalance()",
+			"getCustomer()",
+			"deposit(-12)",
+			"deposit(0)",
+			"deposit(203)",
+			"withdraw(-7)",
+			"withdraw(0)",
+			"withdraw(150)",
+			"withdraw(50)",
+			"withdraw(1700)       // Insufficient funds",
+			"b1.transfer(b2, -2)",
+			"b1.transfer(b2, 0)",
+			"b1.transfer(b2, 9)",
+			"b2.transfer(b1, 320)",
+			"b2.transfer(b1, 6)   // Insufficient funds",
+			"b1.transfer(b1, 200) // Self transfer"
+		}, new String[] {
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 0",
+			"0",
+			"First Name = John\nLast Name = Smith\nAge = 32",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 0",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 0",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 203",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 203",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 203",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 53",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 3",
+			"First Name = John\nLast Name = Smith\nAge = 32\nBalance = 3",
+			"Danny: 9 ->  Ryan: 314",
+			"Danny: 9 ->  Ryan: 314",
+			"Danny: 0 ->  Ryan: 323",
+			" Ryan: 3 -> Danny: 320",
+			" Ryan: 3 -> Danny: 320",
+			"Danny: 320 -> Danny",
 		}, responses);
 	}
 
