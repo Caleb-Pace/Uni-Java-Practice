@@ -1,8 +1,10 @@
+package unijavapractice.banking;
+
 public class Person {
     private String firstName, lastName;
     private int age;
 
-    Person(String firstName, String lastName, int age) {
+    public Person(String firstName, String lastName, int age) {
         setFirstName(firstName);
         setLastName(lastName);
         setAge(age);
@@ -10,26 +12,26 @@ public class Person {
 
 
     //-/ Gets & Sets
-    int getAge() { return age; }
+    public int getAge() { return age; }
     
-    void setAge(int age) {
+    public void setAge(int age) {
         if (age >= 0 && age <= 969)
             this.age = age;
         else
             this.age = -1; // Invalid age
     }
 
-    String getFirstName() { return firstName; }
+    public String getFirstName() { return firstName; }
     
-    void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    String getLastName() { return lastName; }
+    public String getLastName() { return lastName; }
 
-    void setLastName(String lastName) { this.lastName = lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
 
 
     //-/ Methods
-    Person oldest(Person otherPerson) {
+    public Person oldest(Person otherPerson) {
         if (this.age > otherPerson.age)
             return this;
         return otherPerson;

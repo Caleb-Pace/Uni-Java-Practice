@@ -1,4 +1,8 @@
+package unijavapractice;
+
 import java.security.InvalidParameterException;
+import unijavapractice.banking.Person;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -10,7 +14,7 @@ public class Main {
 		String[] responses = new String[16];
 
 		// Get & toString tests
-		Person p =  new Person("John", "Smith", 32);
+		Person p = new Person("John", "Smith", 32);
 		responses[0] = p.toString();
 		responses[1] = String.valueOf(p.getAge());
 		responses[8] = p.getFirstName();
@@ -48,7 +52,7 @@ public class Main {
 		responses[15] = p2.oldest(p1).toString();
 
 		displayResults(new String[] {
-			"Person(\"Paul\", \"Smith\", 32)",
+			"Person(\"John\", \"Smith\", 32)",
 			"getAge()",
 			"setAge(-5)",
 			"setAge(0)",
@@ -65,7 +69,7 @@ public class Main {
 			"Oldest Person",
 			"Oldest Person (Swapped)"
 		}, new String[] {
-			"First Name = Paul\nLast Name = Smith\nAge = 32",
+			"First Name = John\nLast Name = Smith\nAge = 32",
 			"32",
 			"-1",
 			"0",
@@ -73,7 +77,7 @@ public class Main {
 			"94",
 			"969",
 			"-1",
-			"Paul",
+			"John",
 			"Robin",
 			"",
 			"Smith",
