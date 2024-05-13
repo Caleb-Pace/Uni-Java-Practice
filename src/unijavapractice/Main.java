@@ -4,13 +4,15 @@ import java.security.InvalidParameterException;
 import unijavapractice.banking.BankAccount;
 import unijavapractice.banking.Person;
 import unijavapractice.secret.TopSecret;
+import unijavapractice.textanalysis.WordCounter;
 
 
 public class Main {
 	public static void main(String[] args) {
-		PersonalDataTests();
-		BankAccountTests();
-		TopSecretFilesTests();
+		// PersonalDataTests();
+		// BankAccountTests();
+		// TopSecretFilesTests();
+		KeywordFrequenciesTests();
 	}
 
 	// Unit tests for the Personal Data section.
@@ -204,6 +206,28 @@ public class Main {
 		}, new String[] {
 			"Text = " + originalText,
 			"Text = " + secretText
+		}, responses);
+	}
+
+	// Unit tests for the Keyword Frequencies section.
+	public static void KeywordFrequenciesTests() {
+		String[] responses = new String[2];
+
+		// toString test
+		WordCounter f = new WordCounter("The lazy fox jumped over the quick quick brown lazy cat");
+		responses[0] = f.toString();
+
+		// Set test
+		f.setText("");
+		responses[1] = f.toString();
+
+		// Compare results
+		displayResults("Keyword Frequencies", new String[] {
+			"Initialisation",
+			"setText(\"\")"
+		}, new String[] {
+			"fox: 1 quick: 2 lazy: 2 cat: 1",
+			"fox: 0 quick: 0 lazy: 0 cat: 0"
 		}, responses);
 	}
 

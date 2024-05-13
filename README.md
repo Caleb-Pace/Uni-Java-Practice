@@ -12,4 +12,6 @@ Created by Dr. Kenneth Johnson.
 **[Bank Account Tests](src/unijavapractice/Main.java):** 44m<br/>
 **[Top Secret Files](src/unijavapractice/secret/TopSecret.java):** 11m<br/>
 **[Top Secret Files Tests](src/unijavapractice/Main.java):** 13m<br/>
+**[Keyword Frequencies](src/unijavapractice//textanalysis/WordCounter.java):**48m
+**[Keyword Frequencies Tests](src/unijavapractice/Main.java):** 7m<br/>
 **Other:** 43m<br/>
