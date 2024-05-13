@@ -10,6 +10,8 @@ public class WordCounter {
 
 
     //-/ Set
+    // Sets the text.
+    //     Keyword frequencies are calculated based on {text}.
     public void setText(String text) {
         this.text = text;
         frequencies = keywordFreqency();
@@ -25,10 +27,10 @@ public class WordCounter {
             output += String.format("%s: %d ", keyword.getStr(), frequencies[i++]);
         }
 
-        return output;
+        return output.substring(0, (output.length() - 1)); // Remove trailing space
     }
     
-    // Counts the frequency of each keyword in the text
+    // Counts the frequency of each keyword in the text.
     private int[] keywordFreqency() {
         int[] frequencies = new int[Keyword.values().length]; // Stores keyword frequencies
         
