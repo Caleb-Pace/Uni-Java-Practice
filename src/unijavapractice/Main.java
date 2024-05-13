@@ -7,7 +7,7 @@ import unijavapractice.banking.Person;
 
 public class Main {
 	public static void main(String[] args) {
-		//PersonalDataTests();
+		PersonalDataTests();
 		BankAccountTests();
 	}
 
@@ -53,6 +53,8 @@ public class Main {
 		responses[14] = p1.oldest(p2).toString();
 		responses[15] = p2.oldest(p1).toString();
 
+		// Compare results
+		System.out.println("\nPersonal Data:");
 		displayResults(new String[] {
 			"Person(\"John\", \"Smith\", 32)",
 			"getAge()",
@@ -140,6 +142,8 @@ public class Main {
 		b1.transfer(b1, 200);
 		responses[16] = String.format("Danny: %d -> Danny", b1.getBalance());
 		
+		// Compare results
+		System.out.println("\nBank Account:");
 		displayResults(new String[] {
 			"Initialisation",
 			"getBalance()",
@@ -190,7 +194,8 @@ public class Main {
 		}
 	
 		// Calculate formatting offsets
-		int testNumberWidth = String.valueOf(testNames.length).length();
+		int indent = 4;
+		int testNumberWidth = String.valueOf(testNames.length).length() + indent;
 		int commentIndent = testNumberWidth + 3 + 9; // Align with test "Fail". +9 for "Expected:"
 		
 		// Coloured key words
@@ -198,16 +203,26 @@ public class Main {
 		String fail = "\033[1;31mFail\033[0m"; // Bold red
 
 		// Loop through test results
+		int failCount = 0;
 		for (int i = 0; i < testNames.length; i++) {
 			boolean success = expectedResults[i].equals(actualResults[i]);
 			String comment = "";
 	
 			// Build comment string only if the test failed (Colour: Yellow)
-			if (!success)
+			if (!success) {
 				comment = String.format("\n\033[0;33m%" + commentIndent + "s \"%s\"\n%" + commentIndent + "s \"%s\"\033[0m", "Expected:", expectedResults[i], "Got:", actualResults[i]);
+				failCount++;
+			}
 	
 			// Format and print test result
-			System.out.println(String.format("%" + testNumberWidth + "s | %s | %s%s", i, (success ? pass : fail), testNames[i], comment));
+			System.out.println(String.format("%" + testNumberWidth + "s | %s | %s%s", (i + 1), (success ? pass : fail), testNames[i], comment));
 		}
+
+		// Display summary
+		String summaryIndicator = "-".repeat(testNumberWidth - indent - 1) + ">";
+		if (failCount == 0)
+			System.out.println(String.format("%" + testNumberWidth + "s | \033[1;32mPassed \033[0;32mall %d tests\033[0m", summaryIndicator, testNames.length));
+		else
+			System.out.println(String.format("%" + testNumberWidth + "s | \033[1;31mPassed \033[0;31m%d/%d tests\033[0m", summaryIndicator, (testNames.length - failCount), testNames.length));
 	}
 }
