@@ -9,12 +9,12 @@ public class TopSecret {
 
 
     //-/ Methods
-    private String underscores(int n) { return "_".repeat(n); }
-
+    // Obscures sensitive information/{redactions} from the text.
+    //     Replaces redacted characters with underscores.
     public TopSecret redact(String[] redactions) {
-        String newText = text;
+        String newText = text; // Copy text
         
-        // Redact with underscores
+        // Replace each redaction with underscores
         for (String redaction : redactions) {
             newText = newText.replace(redaction, underscores(redaction.length()));
         }
@@ -25,4 +25,7 @@ public class TopSecret {
     public String toString() {
         return "Text = " + text;
     }
+
+    // Creates a string of underscores of length {n}.
+    private String underscores(int n) { return "_".repeat(n); }
 }
