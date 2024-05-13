@@ -3,12 +3,14 @@ package unijavapractice;
 import java.security.InvalidParameterException;
 import unijavapractice.banking.BankAccount;
 import unijavapractice.banking.Person;
+import unijavapractice.secret.TopSecret;
 
 
 public class Main {
 	public static void main(String[] args) {
 		PersonalDataTests();
 		BankAccountTests();
+		TopSecretFilesTests();
 	}
 
 	// Unit tests for the Personal Data section.
@@ -178,6 +180,30 @@ public class Main {
 			" Ryan: 3 -> Danny: 320",
 			" Ryan: 3 -> Danny: 320",
 			"Danny: 320 -> Danny",
+		}, responses);
+	}
+
+	// Unit tests for the Top Secret Files section.
+	public static void TopSecretFilesTests() {
+		String[] responses = new String[2];
+
+		String originalText = "The secret tomato sauce ingredients are: onions, carrots,\ngarlic, whole tomatoes, salt, tomato paste and olive oil.";
+		String secretText = "The ______ ______ s_uce ingredients _re: onions, c_rrots,\ng_rlic, wh__e ______es, s_lt, ______ p_ste _nd __ive oil.";
+
+		// toString test
+		TopSecret original = new TopSecret(originalText);
+		responses[0] = original.toString();
+
+		// Method test
+		responses[1] = original.redact(new String[]{"tomato","secret","ol","a"}).toString();
+
+		// Compare results
+		displayResults("Top Secret Files", new String[] {
+			"Initialisation",
+			"Redaction"
+		}, new String[] {
+			"Text = " + originalText,
+			"Text = " + secretText
 		}, responses);
 	}
 
