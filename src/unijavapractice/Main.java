@@ -9,9 +9,9 @@ import unijavapractice.textanalysis.WordCounter;
 
 public class Main {
 	public static void main(String[] args) {
-		// PersonalDataTests();
-		// BankAccountTests();
-		// TopSecretFilesTests();
+		PersonalDataTests();
+		BankAccountTests();
+		TopSecretFilesTests();
 		KeywordFrequenciesTests();
 	}
 
