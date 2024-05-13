@@ -54,8 +54,7 @@ public class Main {
 		responses[15] = p2.oldest(p1).toString();
 
 		// Compare results
-		System.out.println("\nPersonal Data:");
-		displayResults(new String[] {
+		displayResults("Personal Data", new String[] {
 			"Person(\"John\", \"Smith\", 32)",
 			"getAge()",
 			"setAge(-5)",
@@ -143,8 +142,7 @@ public class Main {
 		responses[16] = String.format("Danny: %d -> Danny", b1.getBalance());
 		
 		// Compare results
-		System.out.println("\nBank Account:");
-		displayResults(new String[] {
+		displayResults("Bank Account", new String[] {
 			"Initialisation",
 			"getBalance()",
 			"getCustomer()",
@@ -184,7 +182,7 @@ public class Main {
 	}
 
 	// This method validates and displays formatted test results (Pass/Fail).
-	public static void displayResults(String[] testNames, String[] expectedResults, String[] actualResults) {
+	public static void displayResults(String heading, String[] testNames, String[] expectedResults, String[] actualResults) {
 		// Validate input array lengths
 		if (testNames.length != expectedResults.length) {
 			throw new InvalidParameterException("Length mismatch between tests and expected results! (test names: " + testNames.length + " != expected: " + expectedResults.length + ")");
@@ -201,6 +199,9 @@ public class Main {
 		// Coloured key words
 		String pass = "\033[1;32mPass\033[0m"; // Bold green
 		String fail = "\033[1;31mFail\033[0m"; // Bold red
+
+		// Print heading
+		System.out.println("\n\033[4;1m" + heading + ":\033[0m"); // Bold Underline
 
 		// Loop through test results
 		int failCount = 0;
